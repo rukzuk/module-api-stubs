@@ -31,6 +31,10 @@ function clone_rukzuk_repo(){
 }
 
 function create_php_stubs() {
+    # install composer packages
+    (cd ${directory}/cms && ./composer.phar update)
+
+    # create stubs
     if [ -f "$createStubs" ]; then
         echo "------------ run createStubs ${directory} ${target}/php"
         "$createStubs" "${target}/php"
