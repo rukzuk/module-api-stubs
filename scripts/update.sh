@@ -3,7 +3,8 @@
 #
 # Update Stubs
 #
-
+DEFAULT_BRANCH="master"
+BRANCH=${1:-$DEFALUT_BRANCH}
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 directory="${DIR}/tmp/rukzuk_repo"
@@ -25,8 +26,8 @@ function make_repo_dir() {
     fi
 }
 
-function clone_rukzuk_repo(){
-    git clone --depth 1 ssh://git@stash.rukzuk.intern:7999/rz/rukzuk.git "$directory"
+function clone_rukzuk_repo() {
+    git clone --depth 1 --branch ${BRANCH} ssh://git@stash.rukzuk.intern:7999/rz/rukzuk.git "$directory"
     git --git-dir="${directory}/.git" describe --always > "${target}/git.version"
 }
 
