@@ -1,3 +1,4 @@
-Module API stubs (API interface reference)
+Module API stubs
 ==========================================
 
+API interface references
